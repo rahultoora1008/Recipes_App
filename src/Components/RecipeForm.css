@@ -1,7 +1,8 @@
 .recipe-form {
 	color: black;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	max-width: 40vw;
+	max-height: 90vh;
 	display: flex;
 	background-color: rgba(223, 223, 223, 0.9);
 	flex-direction: column;
@@ -12,9 +13,15 @@
 	border-radius: 10px;
 }
 
+.recipe-form h5 {
+	font-size: 2rem;
+	align-self: center;
+}
+
 .recipe-form input[type=text] {
 	padding: 5px 8px;
 	box-sizing: border-box;
+	border-radius: 5px;
 }
 
 .recipe-form-line {
@@ -29,14 +36,14 @@
 	margin-left: 15px;
 }
 
+textarea {
+	border-radius: 5px;
+}
+
 .buttons {
-	color: white;
-	background-color: #2c3e50;
-	border-radius: 6px;
 	padding: 0 10px 1px 10px;
 	margin: 8px 0;
 	align-self: flex-end;
-	font-size: 1.1em;
 }
 
 .close-button {
@@ -62,4 +69,34 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+}
+
+@media only screen and (max-width: 720px) {
+	.recipe-form-container {
+		color: black;
+		font-size: .9rem;
+		display: flex;
+		background-color: rgba(0, 0, 0, 0.8);
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		margin: 10px;
+		padding: 15px;
+		border-radius: 10px;
+	}
+
+	.recipe-form {
+		color: black;
+		font-size: .9srem;
+		max-width: 80vw;
+		max-height: 90vh;
+		display: flex;
+		background-color: rgba(223, 223, 223, 0.9);
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		margin: 10px;
+		padding: 15px;
+		border-radius: 10px;
+	}
 }

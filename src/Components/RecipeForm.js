@@ -4,6 +4,7 @@ import './RecipeForm.css';
 class RecipeInput extends Component {
 	static defaultProps = {
 		onClose() {},
+		onKeyDown() {},
 		onSave() {}
 	};
 
@@ -51,6 +52,7 @@ class RecipeInput extends Component {
 	render() {
 		const { title, instructions, img, ingredients } = this.state;
 		const { onClose } = this.props;
+		const { onKeyDown } = this.props;
 		let inputs = ingredients.map((ing, i) => (
 			<div className="recipe-form-line" key={`ingredient-${i}`}>
 				<label>
@@ -69,11 +71,14 @@ class RecipeInput extends Component {
 		));
 
 		return (
-			<div className="recipe-form-container">
-				<form className="recipe-form" onSubmit={this.handleSubmit}>
+			<div className="recipe-form-container " onKeyDown={onKeyDown}>
+				<form className="recipe-form card" onSubmit={this.handleSubmit}>
 					<button type="button" className="close-button" onClick={onClose}>
 						X
 					</button>
+					<h5>
+						<strong>Add New Recipe</strong>
+					</h5>
 					<div className="recipe-form-line">
 						<label htmlFor="recipe-title-input">Title</label>
 						<input
@@ -83,7 +88,9 @@ class RecipeInput extends Component {
 							type="text"
 							value={title}
 							size={42}
+							placeholder="Recipe Title"
 							autoComplete="off"
+							autoFocus
 							onChange={this.handleChange}
 						/>
 					</div>
@@ -91,6 +98,7 @@ class RecipeInput extends Component {
 						Instructions
 					</label>
 					<textarea
+						placeholder="Write down the Instructions over here"
 						key="instructions"
 						id="recipe-instructions-input"
 						type="Instructions"
@@ -108,9 +116,9 @@ class RecipeInput extends Component {
 					<div className="recipe-form-line">
 						<label htmlFor="recipe-img-input">Image Url</label>
 						<input
+							placeholder="https://....."
 							id="recipe-img-input"
 							type="text"
-							placeholder=""
 							name="img"
 							value={img}
 							size={36}
@@ -118,7 +126,11 @@ class RecipeInput extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					<button type="submit" className="buttons" style={{ alignSelf: 'flex-end', marginRight: 0 }}>
+					<button
+						type="submit"
+						className="buttons btn btn-primary"
+						style={{ alignSelf: 'flex-end', marginRight: 0 }}
+					>
 						SAVE
 					</button>
 				</form>
